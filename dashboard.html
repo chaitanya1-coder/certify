@@ -1,0 +1,181 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Certify
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+ </head>
+ <body class="bg-gray-900 text-white">
+  <div class="flex">
+   <!-- Sidebar -->
+   <div class="w-64 bg-gray-800 h-screen p-4">
+    <div class="text-2xl font-bold mb-8">
+     Certify
+    </div>
+    <nav class="space-y-4">
+     <a class="flex items-center space-x-2 text-gray-400 hover:text-white" href="#">
+      <i class="fas fa-home">
+      </i>
+      <span>
+       Home
+      </span>
+     </a>
+     <a class="flex items-center space-x-2 text-gray-400 hover:text-white" href="#">
+      <i class="fas fa-building">
+      </i>
+      <span>
+       Organisations
+      </span>
+     </a>
+     <a class="flex items-center space-x-2 text-gray-400 hover:text-white" href="#">
+      <i class="fas fa-calendar-alt">
+      </i>
+      <span>
+       Events
+      </span>
+     </a>
+     <a class="flex items-center space-x-2 text-gray-400 hover:text-white" href="#">
+      <i class="fas fa-file-alt">
+      </i>
+      <span>
+       Templates
+      </span>
+     </a>
+     <a class="flex items-center space-x-2 text-gray-400 hover:text-white" href="#">
+      <i class="fas fa-certificate">
+      </i>
+      <span>
+       Certificates
+      </span>
+     </a>
+     <a class="flex items-center space-x-2 text-gray-400 hover:text-white" href="#">
+      <i class="fas fa-sign-out-alt"></i>
+        </i>
+        <span>
+        Logout
+        </span>
+    </a>
+     <!-- <a class="flex items-center space-x-2 text-gray-400 hover:text-white" href="#">
+      <i class="fas fa-code">
+      </i>
+      <span>
+       Api Center
+      </span>
+     </a> -->
+    </nav>
+    <!-- <div class="mt-auto">
+     <a class="flex items-center space-x-2 text-gray-400 hover:text-white" href="#">
+      <i class="fas fa-sign-out-alt">
+      </i>
+      <span>
+       Logout
+      </span>
+     </a>
+    </div> -->
+   </div>
+   <!-- Main Content -->
+   <div class="flex-1 p-8">
+    <div class="flex justify-between items-center mb-8">
+     <h1 class="text-3xl font-bold">
+      gm frenz...
+     </h1>
+     <div class="flex items-center space-x-4">
+      <i class="fas fa-cog text-gray-400 hover:text-white">
+      </i>
+      <img alt="User avatar" class="rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/4RMQUqmwlYZZJ9XRNL1fjYlHveb7h7aGnrpQj5x3lWepYZsnA.jpg" width="40"/>
+     </div>
+    </div>
+    <input class="w-full p-4 bg-gray-800 border border-gray-700 rounded mb-8" placeholder="name your task" type="text"/>
+    <h2 class="text-2xl font-bold mb-4">
+     Choose Event details
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+     <div class="bg-gray-800 p-4 border border-gray-700 rounded">
+      <label class="block mb-2">
+       Organization
+      </label>
+      <select class="w-full p-2 bg-gray-700 border border-gray-600 rounded">
+       <option>
+        Organizations Select...
+       </option>
+      </select>
+     </div>
+     <div class="bg-gray-800 p-4 border border-gray-700 rounded">
+      <label class="block mb-2">
+       Event
+      </label>
+      <select class="w-full p-2 bg-gray-700 border border-gray-600 rounded">
+       <option>
+        Events Select...
+       </option>
+      </select>
+     </div>
+     <div class="bg-gray-800 p-4 border border-gray-700 rounded">
+      <label class="block mb-2">
+       Template
+      </label>
+      <select class="w-full p-2 bg-gray-700 border border-gray-600 rounded">
+       <option>
+        Templates Select...
+       </option>
+      </select>
+     </div>
+     <div class="bg-gray-800 p-4 border border-gray-700 rounded">
+      <label class="block mb-2">
+       Certificate Type
+      </label>
+      <select class="w-full p-2 bg-gray-700 border border-gray-600 rounded">
+       <option>
+        Certificate Type Select...
+       </option>
+      </select>
+     </div>
+    </div>
+    <h2 class="text-2xl font-bold mb-4">
+     Provide Data
+    </h2>
+    <p class="mb-4">
+     (You only need to provide one)
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-4 block mb-4 gap-4">
+        <button class="mt-4 p-2 bg-blue-600 rounded">
+            Download Sample CSV
+            <i class="fas fa-download">
+            </i>
+           </button>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+     <div class="bg-gray-800 p-4 border border-gray-700 rounded">
+      <label class="block mb-2">
+       Upload CSV
+      </label>
+      <input class="w-full p-2 bg-gray-700 border border-gray-600 rounded mb-4" type="file"/>
+      <div class="text-center mb-4">
+       Or
+      </div>
+      <label class="block mb-2">
+       Fetch from an URL
+      </label>
+      <input class="w-full p-2 bg-gray-700 border border-gray-600 rounded mb-4" type="text"/>
+      <button class="w-full p-2 bg-blue-600 rounded">
+       Fetch Data
+      </button>
+     </div>
+     <div class="bg-gray-800 p-4 border border-gray-700 rounded">
+      <label class="block mb-2">
+       Enter CSV String
+      </label>
+      <textarea class="w-full p-2 bg-gray-700 border border-gray-600 rounded h-32" placeholder="Here is a sample placeholder"></textarea>
+      <button class="w-full p-2 bg-blue-600 rounded mt-4">
+       Decode Data
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

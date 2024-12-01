@@ -51,7 +51,6 @@ module certificate_authority::Cert {
         CertificateStorage { id: object::new(ctx), table: table::new<address, Certificate>(ctx) }
     }
 
-    // === Functions ===
 
     /// Register a Certificate Authority
     public fun register_authority(storage: &mut AuthorityCertificates, ctx: &mut TxContext) {

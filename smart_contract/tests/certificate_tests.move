@@ -1,4 +1,58 @@
 /*
+module certificate_authority::Test {
+    use sui::object::{Self, UID};
+    use sui::transfer;
+    use sui::tx_context::TxContext;
+    use sui::test_scenario;
+    // use sui::signer::{self, Signer};
+    // use sui::vector;
+    use certificate_authority::CertificateAuthority::CertificateAuthority;
+    use certificate_authority::CertificateAuthority::Certificate;
+
+    #[test]
+    public fun test_register_authority(ctx: &mut TxContext) {
+        let sender = &ctx.sender();
+
+        // Register a new Certificate Authority
+        certificate_authority::CertificateAuthority::register_authority(ctx);
+
+        // Verify that the Certificate Authority was created
+        // let authority_id = object::address_to_object_id(sender);
+        let authority_id = *sender;
+        // let authority = transfer::borrow_object<CertificateAuthority>(authority_id, ctx);
+        let authority = transfer::borrow_object<CertificateAuthority>(authority_id, ctx);
+        assert!(authority.address == sender, 0);
+    }
+
+    #[test]
+    public fun test_issue_certificate(ctx: &mut TxContext) {
+        let sender = signer::address_of(&ctx.sender());
+        let recipient = signer::address_of(&ctx.sender()); // For simplicity, using the same address
+
+        // Register a new Certificate Authority
+        certificate_authority::CertificateAuthority::register_authority(ctx);
+
+        // Get the Certificate Authority object
+        let authority_id = object::address_to_object_id(sender);
+        let authority = transfer::borrow_object<CertificateAuthority>(authority_id, ctx);
+
+        // Issue a certificate
+        let ipfs_link = vector::empty<u8>();
+        vector::push_back(&mut ipfs_link, 1); // Example IPFS link
+        MyModule::issue_certificate(&authority, recipient, ipfs_link, ctx);
+
+        // Verify that the Certificate was created
+        let certificate_id = object::address_to_object_id(recipient);
+        let certificate = transfer::borrow_object<Certificate>(certificate_id, ctx);
+        assert!(certificate.issuer == sender, 0);
+        assert!(certificate.recipient == recipient, 0);
+        assert!(vector::length(&certificate.ipfs_link) == 1, 0);
+    }
+}
+*/
+
+
+/*
 #[test_only]
 module certificate_authority::certificate_authority_tests;
 // uncomment this line to import the module
@@ -81,3 +135,51 @@ module certificate_authority::certificate_test {
         // assert!(certificate.ipfs_link == ipfs_link, 0);
     // }
 }
+
+
+/*
+module certificate_authority::Test {
+    use std::signer;
+    use std::vector;
+    use sui::object;
+    use sui::transfer;
+    use sui::tx_context::TxContext;
+    use certificate_authority::CertificateAuthority::CertificateAuthority;
+    use certificate_authority::CertificateAuthority::Certificate;
+
+    #[test]
+    public fun test_register_authority(ctx: &mut TxContext) {
+        let sender = signer::address_of(&ctx.sender());
+
+        // Register a new Certificate Authority
+        MyModule::register_authority(ctx);
+
+        // Verify that the Certificate Authority was created
+        let authority = transfer::borrow_object<CertificateAuthority>(object::address_to_object_id(sender), ctx);
+        assert!(authority.address == sender, 0);
+    }
+
+    #[test]
+    public fun test_issue_certificate(ctx: &mut TxContext) {
+        let sender = signer::address_of(&ctx.sender());
+        let recipient = signer::address_of(&ctx.sender()); // For simplicity, using the same address
+
+        // Register a new Certificate Authority
+        MyModule::register_authority(ctx);
+
+        // Get the Certificate Authority object
+        let authority = transfer::borrow_object<CertificateAuthority>(object::address_to_object_id(sender), ctx);
+
+        // Issue a certificate
+        let ipfs_link = vector::empty<u8>();
+        vector::push_back(&mut ipfs_link, 1); // Example IPFS link
+        MyModule::issue_certificate(&authority, recipient, ipfs_link, ctx);
+
+        // Verify that the Certificate was created
+        let certificate = transfer::borrow_object<Certificate>(object::address_to_object_id(recipient), ctx);
+        assert!(certificate.issuer == sender, 0);
+        assert!(certificate.recipient == recipient, 0);
+        assert!(vector::length(&certificate.ipfs_link) == 1, 0);
+    }
+}
+*/

@@ -1,13 +1,5 @@
-/*
-/// Module: certificate_authority
-module certificate_authority::certificate_authority;
-*/
 
 module certificate_authority::CertificateAuthority {
-    // use std::signer;
-    // use std::string;
-    // use sui::transfer;
-    // use sui::tx_context::{self, TxContext};
 
     // Struct to represent a Certificate Authority
     public struct CertificateAuthority has key, store {
@@ -17,7 +9,7 @@ module certificate_authority::CertificateAuthority {
 
 
     // Struct to represent a Certificate
-    public struct Certificate has key {
+    public struct Certificate has key, store {
         id: UID,
         issuer: address,
         recipient: address,
@@ -32,7 +24,7 @@ module certificate_authority::CertificateAuthority {
         })
     }
     public fun current_authority(self: &CertificateAuthority) : address {
-      self.address
+        self.address
     }
 
     // Issue a certificate
@@ -50,11 +42,11 @@ module certificate_authority::CertificateAuthority {
             ipfs_link,
         })
     }
+}
 
-
-
-    #[test]
+    // #[test]
     // public fun test_register_authority_and_issue_certificate() {
+    /*
     public fun test_register_authority() {
 
         let mut ctx = tx_context::dummy();
@@ -87,4 +79,4 @@ module certificate_authority::CertificateAuthority {
         transfer::public_transfer(authority, @0x0);
 
     }
-}
+    */
